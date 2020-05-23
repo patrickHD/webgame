@@ -19,7 +19,7 @@ namespace webgame.Pages
 
         public void OnGet()
         {
-
+            var x = Request;
         }
     }
 }

@@ -41,6 +41,9 @@ namespace webgame
                 options.ClientId = googleAuthNSection["ClientId"];
                 options.ClientSecret = googleAuthNSection["ClientSecret"];
             });
+
+            services.AddDbContext<webgameContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("webgameContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
