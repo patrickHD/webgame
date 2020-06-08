@@ -9,8 +9,8 @@ namespace webgame
     [Route("api/[controller]")]
     public class GameController : Controller
     {
-        List<ConnectedUser> connectedUsers = new List<ConnectedUser>();
-        List<GameRoom> gameRooms = new List<GameRoom>();
+        static List<ConnectedUser> connectedUsers = new List<ConnectedUser>();
+        //List<GameRoom> gameRooms = new List<GameRoom>();
 
         public IActionResult Index()
         {
@@ -26,20 +26,21 @@ namespace webgame
         [Route("[action]")]
         public IActionResult Two()
         {
-            return new JsonResult("2");
+            connectedUsers.Add(new ConnectedUser { username = "User" + DateTime.Now.Ticks, added = DateTime.Now });
+            return new JsonResult(connectedUsers.Last());
         }
 
         [Route("[action]")]
         public IActionResult One()
         {
-            return new JsonResult("12");
+            return new JsonResult(string.Join(",", connectedUsers.Select(s => s.username + " - " + s.added)));
         }
     }
 
     class ConnectedUser
     {
-        string username;
-        DateTime added;
+        public string username;
+        public DateTime added;
     }
 
     class GameRoom 
