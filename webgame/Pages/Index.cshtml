@@ -9,13 +9,14 @@
         $.ajax({
             url: '/?handler=TestTask'
         }).then((data) => {
-            alert(data);
+            console.log(data);
         });
     });
 </script>
 
-    <div class="text-center">
-        <h1 class="display-4">Welcome</h1>
-        <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-        @Url.Action(action: "TestTask", controller: "Home")
-    </div>
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <a href="@Url.Action("Two", "Game")">@Url.Action("Two", "Game")</a>
+    <a href="@Url.Action("One", "Game")">@Url.Action("One", "Game")</a>
+</div>

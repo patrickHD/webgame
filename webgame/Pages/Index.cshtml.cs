@@ -17,16 +17,15 @@ namespace webgame.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public static void OnGet()
         {
            
         }
 
-        [HttpGet]
         public async Task<IActionResult> OnGetTestTask()
         {
-            _ = User; var x = User.FindFirst(System.Security.Claims.ClaimTypes.Email); var y = User.FindAll(""); var z = User.ToString(); var i = HttpContext.User;
-            int xx = 2;
+            _ = User;
+            await Task.Delay(1);
             return new JsonResult(new int[] { 4, 5, 6 });
         }
     }
